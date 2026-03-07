@@ -22,6 +22,7 @@ jobs:
           fonts-roboto \
           fonts-adobe-sourcesans3 \
           ;
+        luaotfload-tool --update
 
     - name: Compile resume
       run: lualatex resume.tex
