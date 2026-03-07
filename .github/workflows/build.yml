@@ -32,3 +32,9 @@ jobs:
       with:
         name: resume
         path: resume.pdf
+
+    - name: Create release
+      if: startsWith(github.ref, 'refs/tags/')
+      uses: softprops/action-gh-release@v2
+      with:
+        files: resume.pdf
