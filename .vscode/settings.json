@@ -1,0 +1,10 @@
+{
+  "emeraldwalk.runonsave": {
+    "commands": [
+      {
+        "match": "\\.tex$",
+        "cmd": "/usr/bin/make -C ${workspaceFolder}"
+      }
+    ]
+  }
+}
