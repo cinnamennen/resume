@@ -57,17 +57,49 @@ git add Awesome-CV
 git commit -m "Update Awesome-CV submodule"
 ```
 
-## Task Tracking (beads)
+<!-- BEGIN BEADS INTEGRATION -->
+## Issue Tracking with bd (beads)
 
-This project uses **bd** (beads) for issue tracking.
+**IMPORTANT**: This project uses **bd (beads)** for ALL issue tracking. Do NOT use markdown TODOs, task lists, or other tracking methods.
+
+Run `bd prime` for full workflow context.
+
+### Quick Reference
 
 ```bash
-bd ready              # Find available work
+bd ready              # Find unblocked work
 bd show <id>          # View issue details
-bd update <id> --status in_progress  # Claim work
-bd close <id>         # Complete work
-bd sync               # Sync with git
+bd create "Title" --type task --priority 2  # Create issue
+bd update <id> --claim                      # Claim work atomically
+bd close <id> --reason "Done"               # Complete work
+bd sync               # Sync with git (run at session end)
 ```
+
+### Issue Types & Priorities
+
+**Types:** `bug`, `feature`, `task`, `epic`, `chore`
+
+**Priorities:** `0` critical → `1` high → `2` medium → `3` low → `4` backlog
+
+### Agent Workflow
+
+1. `bd ready` — find unblocked work
+2. `bd update <id> --claim` — claim it
+3. Do the work
+4. `bd close <id> --reason "Done"` — complete it
+5. Discovered new work? `bd create "Title" --deps discovered-from:<id>`
+
+### Critical Agent Rules
+
+- ❌ **Never use `bd edit`** — it opens an interactive editor and hangs. Use `bd update <id> --description "..."` instead.
+- ✅ Use stdin for descriptions with special characters:
+  ```bash
+  echo 'Description with `backticks` and "quotes"' | bd create "Title" --description=-
+  ```
+- ✅ Always use `--json` flag for programmatic parsing
+- ✅ Link discovered work with `discovered-from` dependencies
+- ❌ Do NOT create markdown TODO lists or use external trackers
+<!-- END BEADS INTEGRATION -->
 
 ## Landing the Plane (Session Completion)
 
