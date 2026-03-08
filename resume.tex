@@ -51,10 +51,9 @@
     \ifempty{#3#4}
       {\entrypositionstyle{#2} & \entrydatestyle{#5} \\}
       {\entrytitlestyle{#3} & \entrylocationstyle{#4} \\
-      \entrypositionstyle{#2} & \entrydatestyle{#5} \\}
-    \ifstrempty{#1}
-      {}
-      {\multicolumn{2}{L{\textwidth}}{\descriptionstyle{\textit{#1}}} \\}
+      \ifstrempty{#1}
+        {\entrypositionstyle{#2} & \entrydatestyle{#5} \\}
+        {\entrypositionstyle{#2}\newline\descriptionstyle{\textit{#1}} & \entrydatestyle{#5} \\}}
     \ifstrempty{#6}
       {}
       {\multicolumn{2}{L{\textwidth}}{\descriptionstyle{#6}} \\}
