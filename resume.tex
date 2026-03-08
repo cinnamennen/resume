@@ -41,6 +41,26 @@
 % \quote{``A short quote or tagline."}
 
 
+% Override \cventry to support an optional summary before description bullets
+% Usage: \cventry[summary]{position}{org}{location}{date}{description}
+\renewcommand*{\cventry}[6][]{%
+  \vspace{-2.0mm}
+  \setlength\tabcolsep{0pt}
+  \setlength{\extrarowheight}{0pt}
+  \begin{tabular*}{\textwidth}{@{\extracolsep{\fill}} L{\textwidth - 4.5cm} R{4.5cm}}
+    \ifempty{#3#4}
+      {\entrypositionstyle{#2} & \entrydatestyle{#5} \\}
+      {\entrytitlestyle{#3} & \entrylocationstyle{#4} \\
+      \entrypositionstyle{#2} & \entrydatestyle{#5} \\}
+    \ifstrempty{#1}
+      {}
+      {\multicolumn{2}{L{\textwidth}}{\descriptionstyle{\textit{#1}}} \\}
+    \ifstrempty{#6}
+      {}
+      {\multicolumn{2}{L{\textwidth}}{\descriptionstyle{#6}} \\}
+  \end{tabular*}%
+}
+
 %-------------------------------------------------------------------------------
 \begin{document}
 
@@ -61,8 +81,8 @@
 %	Each section is imported separately, open each file in turn to modify content
 %-------------------------------------------------------------------------------
 \input{resume/summary.tex}
-\input{resume/experience.tex}
 \input{resume/skills.tex}
+\input{resume/experience.tex}
 \input{resume/education.tex}
 
 
