@@ -27,6 +27,7 @@ jobs:
           fonts-roboto \
           fonts-adobe-sourcesans3 \
           ;
+        fc-cache -fv
 
     - name: Compile resume
       run: TEXINPUTS="./vendor/awesome-cv//:" xelatex resume.tex
