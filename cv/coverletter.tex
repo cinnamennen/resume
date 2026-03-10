@@ -1,0 +1,89 @@
+%!TEX TS-program = xelatex
+%!TEX encoding = UTF-8 Unicode
+% Cover Letter built with Awesome-CV (https://github.com/posquit0/Awesome-CV)
+
+
+%-------------------------------------------------------------------------------
+% CONFIGURATIONS
+%-------------------------------------------------------------------------------
+% A4 paper size by default, use 'letterpaper' for US letter
+\documentclass[11pt, letterpaper]{awesome-cv}
+
+% Configure page margins with geometry
+\geometry{left=1.4cm, top=.8cm, right=1.4cm, bottom=1.8cm, footskip=.5cm}
+
+% Color for highlights
+% Awesome Colors: awesome-emerald, awesome-skyblue, awesome-red, awesome-pink, awesome-orange
+%                 awesome-nephritis, awesome-concrete, awesome-darknight
+\colorlet{awesome}{awesome-skyblue}
+
+% Set false if you don't want to highlight section with awesome color
+\setbool{acvSectionColorHighlight}{false}
+
+% If you would like to change the social information separator from a pipe (|) to something else
+\renewcommand{\acvHeaderSocialSep}{\quad\textbar\quad}
+
+
+% Personal info lives in resume/personal.tex (shared with resume)
+\input{resume/personal.tex}
+
+
+%-------------------------------------------------------------------------------
+%	LETTER INFORMATION
+%	Fill these out for each application
+%-------------------------------------------------------------------------------
+% The company being applied to
+\recipient
+  {Hiring Manager}
+  {Company Name\\123 Street Address\\City, ST 00000}
+% The date on the letter, default is the date of compilation
+\letterdate{\today}
+% The title of the letter
+\lettertitle{Job Application for Position Title}
+% How the letter is opened
+\letteropening{Dear Hiring Manager,}
+% How the letter is closed
+\letterclosing{Sincerely,}
+% Any enclosures with the letter
+\letterenclosure[Attached]{Résumé}
+
+
+%-------------------------------------------------------------------------------
+\begin{document}
+
+% Print the header with above personal information
+% Give optional argument to change alignment(C: center, L: left, R: right)
+\makecvheader[R]
+
+% Print the footer with 3 arguments(<left>, <center>, <right>)
+% Leave any of these blank if they are not needed
+% \makecvfooter
+%   {\today}
+%   {Caleb Mennen~~~·~~~Cover Letter}
+%   {}
+
+% Print the title with above letter information
+\makelettertitle
+
+%-------------------------------------------------------------------------------
+%	LETTER CONTENT
+%-------------------------------------------------------------------------------
+\begin{cvletter}
+
+\lettersection{About Me}
+% Introduce yourself and your background
+
+\lettersection{Why This Company?}
+% What excites you about the company
+
+\lettersection{Why Me?}
+% Why you're a great fit for the role
+
+\end{cvletter}
+
+
+%-------------------------------------------------------------------------------
+% Print the signature and enclosures with above letter information
+\makeletterclosing
+
+\end{document}
