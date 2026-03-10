@@ -9,3 +9,7 @@
 
 # Output PDF (uncomment if you want to track the built PDF)
 # cv/resume.pdf
+
+# Hugo build output
+site/public/
+site/resources/

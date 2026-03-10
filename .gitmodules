@@ -1,0 +1,3 @@
+[submodule "site/themes/hugo-awesome-identity"]
+	path = site/themes/hugo-awesome-identity
+	url = https://github.com/posquit0/hugo-awesome-identity.git
