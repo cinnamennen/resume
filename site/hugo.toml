@@ -1,6 +1,7 @@
 baseURL = "https://calebmennen.com/"
 title = "Caleb Mennen"
 theme = "hugo-awesome-identity"
+googleAnalytics = "G-EE9FGER4SY"
 
 [params.profile]
   portrait = "/images/profile.jpg"
