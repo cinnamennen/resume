@@ -1,0 +1,9 @@
+.git
+.github
+.beads
+.vscode
+Awesome-CV
+*.pdf
+*.aux
+*.log
+*.out
