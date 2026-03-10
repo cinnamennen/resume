@@ -15,7 +15,7 @@ theme = "hugo-awesome-identity"
   linkedin = "caleb-mennen"
 
 [[params.actions]]
-  name = "Download CV"
+  name = "Download Resume"
   url = "https://github.com/cinnamennen/resume/releases/latest/download/resume.pdf"
 
 [params.footer]
