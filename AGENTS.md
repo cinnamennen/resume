@@ -2,14 +2,13 @@
 
 ## Project Overview
 
-This is a personal resume/CV project built with [Awesome-CV](https://github.com/posquit0/Awesome-CV), a LaTeX template. The Awesome-CV repo is included as a git submodule and `awesome-cv.cls` is symlinked from it.
+This is a personal resume/CV project built with [Awesome-CV](https://github.com/posquit0/Awesome-CV), a LaTeX template. The `awesome-cv.cls` class file is vendored from upstream (no local modifications).
 
 ## Project Structure
 
 ```
 resume/
-├── Awesome-CV/          ← git submodule (do NOT edit files here)
-├── awesome-cv.cls       ← symlink → Awesome-CV/awesome-cv.cls
+├── vendor/awesome-cv/   ← vendored awesome-cv.cls from upstream
 ├── resume.tex           ← main document (personal info, section imports)
 ├── resume/              ← section content files
 │   ├── summary.tex
@@ -37,7 +36,7 @@ make clean        # remove build artifacts
 - **Section content**: Edit files in `resume/` — each file is one section
 - **Add/remove sections**: Comment/uncomment `\input{resume/...}` lines in `resume.tex`
 - **Accent color**: Change `\colorlet{awesome}{awesome-skyblue}` in `resume.tex`
-- **Do NOT edit** anything inside the `Awesome-CV/` submodule directory
+- **Do NOT edit** `vendor/awesome-cv/awesome-cv.cls` — it should match upstream exactly
 
 ### LaTeX Commands Reference
 
@@ -52,9 +51,10 @@ make clean        # remove build artifacts
 ## Updating Awesome-CV
 
 ```bash
-cd Awesome-CV && git pull origin master && cd ..
-git add Awesome-CV
-git commit -m "Update Awesome-CV submodule"
+curl -sL https://raw.githubusercontent.com/posquit0/Awesome-CV/master/awesome-cv.cls \
+  -o vendor/awesome-cv/awesome-cv.cls
+# Update the commit hash in vendor/awesome-cv/README.md
+make docker-build && make   # verify build still works
 ```
 
 <!-- BEGIN BEADS INTEGRATION -->
