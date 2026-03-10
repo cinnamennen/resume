@@ -35,11 +35,14 @@ jobs:
       run: TEXINPUTS="./vendor/awesome-cv//:" lualatex resume.tex
       working-directory: cv
 
+    - name: Rename PDF for download
+      run: cp cv/resume.pdf 'cv/Caleb Mennen Resume.pdf'
+
     - name: Upload PDF
       uses: actions/upload-artifact@v6
       with:
         name: resume
-        path: cv/resume.pdf
+        path: cv/Caleb Mennen Resume.pdf
 
     - name: Update latest release
       if: github.ref == 'refs/heads/master' && github.event_name == 'push'
@@ -48,7 +51,7 @@ jobs:
         tag_name: latest
         name: Latest Resume
         body: Automatically updated on every push to master.
-        files: cv/resume.pdf
+        files: cv/Caleb Mennen Resume.pdf
         make_latest: true
         prerelease: false
 
@@ -56,4 +59,4 @@ jobs:
       if: startsWith(github.ref, 'refs/tags/')
       uses: softprops/action-gh-release@v2
       with:
-        files: cv/resume.pdf
+        files: cv/Caleb Mennen Resume.pdf
