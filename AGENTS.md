@@ -11,8 +11,9 @@ This is a monorepo for Caleb Mennen's personal web presence:
 ```
 /
 ├── cv/                      ← resume build
-│   ├── resume.tex           ← main document (personal info, section imports)
+│   ├── resume.tex           ← main document (layout, section imports)
 │   ├── resume/              ← section content files
+│   │   ├── personal.tex     ← name, contact info (→ personal.tex.example)
 │   │   ├── summary.tex
 │   │   ├── experience.tex
 │   │   ├── skills.tex
@@ -39,7 +40,7 @@ make -C cv clean        # remove build artifacts
 
 ## Editing Resume Content
 
-- **Personal info**: Edit the preamble of `cv/resume.tex` (`\name`, `\email`, `\github`, etc.)
+- **Personal info**: Edit `cv/resume/personal.tex` (`\name`, `\email`, `\github`, etc.)
 - **Section content**: Edit files in `cv/resume/` — each file is one section
 - **Add/remove sections**: Comment/uncomment `\input{resume/...}` lines in `cv/resume.tex`
 - **Accent color**: Change `\colorlet{awesome}{awesome-skyblue}` in `cv/resume.tex`

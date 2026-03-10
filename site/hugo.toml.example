@@ -1,0 +1,29 @@
+baseURL = "https://example.com/"
+title = "Your Name"
+theme = "hugo-awesome-identity"
+# googleAnalytics = "G-XXXXXXXXXX"
+
+[params.profile]
+  portrait = "/images/profile.jpg"
+  firstname = "First"
+  lastname = "Last"
+  title = "Your Title"
+  bio = "A short bio about yourself."
+
+[params.meta]
+  description = "Your Name — Your Title."
+  keywords = "your, keywords, here"
+  images = ["/images/profile.jpg"]
+
+[params.contacts]
+  email = "hello@example.com"
+  github = "your-github"
+  linkedin = "your-linkedin"
+
+[[params.actions]]
+  name = "Download Resume"
+  url = "https://github.com/YOUR-USER/YOUR-REPO/releases/latest/download/resume.pdf"
+
+[params.footer]
+  copyright = "© 2026 Your Name"
+  poweredBy = true

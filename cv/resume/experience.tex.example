@@ -1,0 +1,27 @@
+%-------------------------------------------------------------------------------
+%	SECTION TITLE
+%-------------------------------------------------------------------------------
+\cvsection{Work Experience}
+
+
+%-------------------------------------------------------------------------------
+%	CONTENT
+%-------------------------------------------------------------------------------
+\begin{cventries}
+
+%---------------------------------------------------------
+  \cventry
+    [One-line summary of your impact in this role.] % Summary (optional)
+    {Job Title} % Job title
+    {Company Name} % Organization
+    {Location} % Location
+    {Start - End} % Date(s)
+    {
+      \begin{cvitems}
+        \item {Accomplishment described with measurable impact.}
+        \item {Another accomplishment.}
+      \end{cvitems}
+    }
+
+%---------------------------------------------------------
+\end{cventries}

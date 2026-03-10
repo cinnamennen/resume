@@ -1,0 +1,15 @@
+%-------------------------------------------------------------------------------
+%	PERSONAL INFORMATION
+%	Comment any of the lines below if they are not required
+%-------------------------------------------------------------------------------
+\name{First}{Last}
+\position{Your Title{\enskip\cdotp\enskip}Your Specialty}
+\address{City, State}
+
+\mobile{(555) 000-0000}
+\email{hello@example.com}
+% \homepage{www.example.com}
+\github{your-github}
+\linkedin{your-linkedin}
+
+% \quote{``A short quote or tagline."}
