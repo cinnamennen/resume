@@ -44,6 +44,12 @@ jobs:
         name: resume
         path: cv/Caleb Mennen Resume.pdf
 
+    - name: Force-update latest tag
+      if: github.ref == 'refs/heads/master' && github.event_name == 'push'
+      run: |
+        git tag -f latest HEAD
+        git push -f origin latest
+
     - name: Update latest release
       if: github.ref == 'refs/heads/master' && github.event_name == 'push'
       uses: softprops/action-gh-release@v2
