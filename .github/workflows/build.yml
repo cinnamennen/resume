@@ -24,12 +24,12 @@ jobs:
 
     - name: Install fonts
       run: |
-        apt update
-        apt install --yes \
+        apt-get update -qq
+        apt-get install -qq --yes \
           fonts-roboto \
           fonts-adobe-sourcesans3 \
-          ;
-        luaotfload-tool --update
+          > /dev/null
+        luaotfload-tool --update --quiet
 
     - name: Compile resume
       run: TEXINPUTS="./vendor/awesome-cv//:" lualatex resume.tex
