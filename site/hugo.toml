@@ -3,10 +3,11 @@ title = "Caleb Mennen"
 theme = "hugo-awesome-identity"
 
 [params.profile]
+  portrait = "/images/profile.jpg"
   firstname = "Caleb"
   lastname = "Mennen"
   title = "Frontend Developer · AI Champion"
-  bio = "Portland-based frontend developer and AI champion building modern web experiences."
+  bio = "Focusing on closing the gap between AI power users and everyday engineers — shipping practical improvements rather than chasing novelty."
 
 [params.contacts]
   email = "hello@calebmennen.com"
