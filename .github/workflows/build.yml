@@ -27,10 +27,10 @@ jobs:
           fonts-roboto \
           fonts-adobe-sourcesans3 \
           ;
-        fc-cache -fv
+        luaotfload-tool --update
 
     - name: Compile resume
-      run: TEXINPUTS="./vendor/awesome-cv//:" xelatex resume.tex
+      run: TEXINPUTS="./vendor/awesome-cv//:" lualatex resume.tex
       working-directory: cv
 
     - name: Upload PDF
