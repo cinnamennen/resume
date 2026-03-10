@@ -9,6 +9,7 @@
 
 # Output PDF
 cv/resume.pdf
+cv/coverletter.pdf
 
 # Hugo build output
 site/public/
