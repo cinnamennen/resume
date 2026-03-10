@@ -3,7 +3,7 @@
     "commands": [
       {
         "match": "\\.tex$",
-        "cmd": "/usr/bin/make -C ${workspaceFolder}"
+        "cmd": "/usr/bin/make -C ${workspaceFolder}/cv"
       }
     ]
   }

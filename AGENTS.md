@@ -2,41 +2,48 @@
 
 ## Project Overview
 
-This is a personal resume/CV project built with [Awesome-CV](https://github.com/posquit0/Awesome-CV), a LaTeX template. The `awesome-cv.cls` class file is vendored from upstream (no local modifications).
+This is a monorepo for Caleb Mennen's personal web presence:
+- **cv/** — Resume/CV built with [Awesome-CV](https://github.com/posquit0/Awesome-CV) LaTeX template
+- **site/** — Hugo identity landing page (using hugo-awesome-identity theme)
 
 ## Project Structure
 
 ```
-resume/
-├── vendor/awesome-cv/   ← vendored awesome-cv.cls from upstream
-├── resume.tex           ← main document (personal info, section imports)
-├── resume/              ← section content files
-│   ├── summary.tex
-│   ├── experience.tex
-│   ├── skills.tex
-│   └── education.tex
-├── Dockerfile           ← texlive image with required fonts
-├── Makefile             ← build targets
-└── .beads/              ← beads task tracking database
+/
+├── cv/                      ← resume build
+│   ├── resume.tex           ← main document (personal info, section imports)
+│   ├── resume/              ← section content files
+│   │   ├── summary.tex
+│   │   ├── experience.tex
+│   │   ├── skills.tex
+│   │   └── education.tex
+│   ├── vendor/awesome-cv/   ← vendored awesome-cv.cls from upstream
+│   ├── Dockerfile           ← texlive image with required fonts
+│   ├── Makefile             ← build targets
+│   └── .dockerignore
+├── site/                    ← Hugo identity site (TODO)
+├── .github/workflows/       ← CI for resume build + site deploy
+├── .beads/                  ← beads task tracking database
+└── AGENTS.md
 ```
 
 ## Building the Resume
 
-LaTeX compilation is done via Docker. Never install LaTeX locally.
+LaTeX compilation is done via Docker from the `cv/` directory. Never install LaTeX locally.
 
 ```bash
-make              # builds resume.pdf via Docker (builds image if needed)
-make docker-build # rebuild Docker image only (after Dockerfile changes)
-make clean        # remove build artifacts
+make -C cv              # builds cv/resume.pdf via Docker
+make -C cv docker-build # rebuild Docker image only (after Dockerfile changes)
+make -C cv clean        # remove build artifacts
 ```
 
-## Editing Content
+## Editing Resume Content
 
-- **Personal info**: Edit the preamble of `resume.tex` (`\name`, `\email`, `\github`, etc.)
-- **Section content**: Edit files in `resume/` — each file is one section
-- **Add/remove sections**: Comment/uncomment `\input{resume/...}` lines in `resume.tex`
-- **Accent color**: Change `\colorlet{awesome}{awesome-skyblue}` in `resume.tex`
-- **Do NOT edit** `vendor/awesome-cv/awesome-cv.cls` — it should match upstream exactly
+- **Personal info**: Edit the preamble of `cv/resume.tex` (`\name`, `\email`, `\github`, etc.)
+- **Section content**: Edit files in `cv/resume/` — each file is one section
+- **Add/remove sections**: Comment/uncomment `\input{resume/...}` lines in `cv/resume.tex`
+- **Accent color**: Change `\colorlet{awesome}{awesome-skyblue}` in `cv/resume.tex`
+- **Do NOT edit** `cv/vendor/awesome-cv/awesome-cv.cls` — it should match upstream exactly
 
 ### LaTeX Commands Reference
 
@@ -52,9 +59,9 @@ make clean        # remove build artifacts
 
 ```bash
 curl -sL https://raw.githubusercontent.com/posquit0/Awesome-CV/master/awesome-cv.cls \
-  -o vendor/awesome-cv/awesome-cv.cls
-# Update the commit hash in vendor/awesome-cv/README.md
-make docker-build && make   # verify build still works
+  -o cv/vendor/awesome-cv/awesome-cv.cls
+# Update the commit hash in cv/vendor/awesome-cv/README.md
+make -C cv docker-build && make -C cv   # verify build still works
 ```
 
 <!-- BEGIN BEADS INTEGRATION -->
