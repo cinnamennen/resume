@@ -9,6 +9,11 @@ theme = "hugo-awesome-identity"
   title = "Frontend Developer · AI Champion"
   bio = "Focusing on closing the gap between AI power users and everyday engineers — shipping practical improvements rather than chasing novelty."
 
+[params.meta]
+  description = "Caleb Mennen — Frontend Developer and AI Champion. Closing the gap between AI power users and everyday engineers."
+  keywords = "Caleb Mennen, frontend developer, AI, software engineer, resume"
+  images = ["/images/profile.jpg"]
+
 [params.contacts]
   email = "hello@calebmennen.com"
   github = "cinnamennen"
