@@ -44,25 +44,19 @@ jobs:
         name: resume
         path: cv/Caleb.Mennen.Resume.pdf
 
-    - name: Force-update latest tag
-      if: github.ref == 'refs/heads/master' && github.event_name == 'push'
-      run: |
-        git tag -f latest HEAD
-        git push -f origin latest
-
-    - name: Update latest release
+    - name: Create release
       if: github.ref == 'refs/heads/master' && github.event_name == 'push'
       uses: softprops/action-gh-release@v2
       with:
-        tag_name: latest
-        name: Latest Resume
-        body: Automatically updated on every push to master.
+        tag_name: build-${{ github.run_number }}
+        name: "Resume build #${{ github.run_number }}"
+        body: Automatically built from ${{ github.sha }}.
         files: cv/Caleb.Mennen.Resume.pdf
         make_latest: true
-        prerelease: false
 
     - name: Create tagged release
       if: startsWith(github.ref, 'refs/tags/')
       uses: softprops/action-gh-release@v2
       with:
         files: cv/Caleb.Mennen.Resume.pdf
+        make_latest: false

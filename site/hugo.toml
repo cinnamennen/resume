@@ -22,7 +22,7 @@ googleAnalytics = "G-EE9FGER4SY"
 
 [[params.actions]]
   name = "Download Resume"
-  url = "https://github.com/cinnamennen/resume/releases/download/latest/Caleb.Mennen.Resume.pdf"
+  url = "https://github.com/cinnamennen/resume/releases/latest/download/Caleb.Mennen.Resume.pdf"
 
 [params.footer]
   copyright = "© 2026 Caleb Mennen"
