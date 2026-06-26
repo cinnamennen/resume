@@ -1,5 +1,5 @@
 baseURL = "https://calebmennen.com/"
-title = "Caleb Mennen — Frontend Developer & AI Champion"
+title = "Caleb Mennen — AI Enablement Engineer & Frontend Developer"
 theme = "hugo-awesome-identity"
 googleAnalytics = "G-EE9FGER4SY"
 
@@ -7,12 +7,12 @@ googleAnalytics = "G-EE9FGER4SY"
   portrait = "/images/profile.jpg"
   firstname = "Caleb"
   lastname = "Mennen"
-  title = "Frontend Developer · AI Champion"
+  title = "AI Enablement Engineer · Frontend Developer"
   bio = "Focusing on closing the gap between AI power users and everyday engineers — shipping practical improvements rather than chasing novelty."
 
 [params.meta]
-  description = "Caleb Mennen — Frontend Developer and AI Champion. Closing the gap between AI power users and everyday engineers."
-  keywords = "Caleb Mennen, frontend developer, AI, software engineer, resume"
+  description = "Caleb Mennen — AI Enablement Engineer and Frontend Developer. Closing the gap between AI power users and everyday engineers."
+  keywords = "Caleb Mennen, AI enablement engineer, frontend developer, AI, software engineer, resume"
   images = ["/images/profile.jpg"]
 
 [params.contacts]
