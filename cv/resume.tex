@@ -22,7 +22,8 @@
 \setbool{acvSectionColorHighlight}{false}
 
 % If you would like to change the social information separator from a pipe (|) to something else
-\renewcommand{\acvHeaderSocialSep}{\quad\textbar\quad}
+% Keep AccSupp wrapper so pipe is hidden from PDF text extraction (parsers see clean separators)
+\renewcommand{\acvHeaderSocialSep}{\BeginAccSupp{ActualText={ | }}\quad\textbar\quad\EndAccSupp{}}
 
 
 % Personal info lives in resume/personal.tex (copy personal.tex.example to get started)
@@ -32,6 +33,17 @@
 % Tighten section spacing to fit on one page
 \renewcommand{\acvSectionTopSkip}{1.5mm}
 \renewcommand{\acvSectionContentTopSkip}{1.5mm}
+
+% Fix small caps rendering — Source Sans 3 lacks true small caps for some glyphs
+\setsansfont{Source Sans 3}[
+  UprightFont=*,
+  ItalicFont=* Italic,
+  BoldFont=* Bold,
+  BoldItalicFont=* Bold Italic,
+  FontFace={l}{n}{Font=* Light},
+  FontFace={l}{it}{Font=* Light Italic},
+  SmallCapsFeatures={Scale=0.85},
+]
 
 % Override \cventry to support an optional summary before description bullets
 % Usage: \cventry[summary]{position}{org}{location}{date}{description}
@@ -43,9 +55,10 @@
     \ifempty{#3#4}
       {\entrypositionstyle{#2} & \entrydatestyle{#5} \\}
       {\entrytitlestyle{#3} & \entrylocationstyle{#4} \\
-      \ifstrempty{#1}
-        {\entrypositionstyle{#2} & \entrydatestyle{#5} \\}
-        {\entrypositionstyle{#2}\newline\descriptionstyle{\textit{#1}} & \entrydatestyle{#5} \\}}
+      \entrypositionstyle{#2} & \entrydatestyle{#5} \\}
+    \ifstrempty{#1}
+      {}
+      {\multicolumn{2}{L{\textwidth}}{\descriptionstyle{\textit{#1}}} \\}
     \ifstrempty{#6}
       {}
       {\multicolumn{2}{L{\textwidth}}{\descriptionstyle{#6}} \\}
