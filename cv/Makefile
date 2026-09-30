@@ -1,6 +1,6 @@
 .PHONY: resume coverletter clean docker-build local-resume local-coverletter
 
-CC = xelatex
+CC = lualatex
 RESUME_SRCS = $(shell find resume -name '*.tex')
 
 DOCKER_IMAGE = awesome-cv-builder
@@ -19,11 +19,11 @@ coverletter: coverletter.tex $(RESUME_SRCS) vendor/awesome-cv/awesome-cv.cls
 docker-build:
 	docker build -t $(DOCKER_IMAGE) .
 
-# Build resume PDF locally (requires local xelatex installation)
+# Build resume PDF locally (requires local lualatex installation)
 local-resume: resume.tex $(RESUME_SRCS) vendor/awesome-cv/awesome-cv.cls
 	TEXINPUTS="./vendor/awesome-cv//:" $(CC) resume.tex
 
-# Build cover letter PDF locally (requires local xelatex installation)
+# Build cover letter PDF locally (requires local lualatex installation)
 local-coverletter: coverletter.tex $(RESUME_SRCS) vendor/awesome-cv/awesome-cv.cls
 	TEXINPUTS="./vendor/awesome-cv//:" $(CC) coverletter.tex
 
